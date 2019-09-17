@@ -1,19 +1,19 @@
 'use strict';
 
-var cloud_width = 420;
-var cloud_height = 270;
-var bar_width = 40;
-var bar_height= 150;
-var cloud_x = 100;
-var cloud_y = 10;
-var bar_x = 140;
-var bar_y = 100;
-var gap = 10;
-var bar_gap = 50;
+var CLOUD_WIDTH = 420;
+var CLOUD_HEIGHT = 270;
+var BAR_WIDTH = 40;
+var BAR_HEIGHT = 150;
+var CLOUD_X = 100;
+var CLOUD_Y = 10;
+var BAR_X = 140;
+var BAR_Y = 100;
+var GAP = 10;
+var BAR_GAP = 50;
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
-  ctx.fillRect(x, y, cloud_width, cloud_height);
+  ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
 var getTextValue = function (ctx, text, x, y, color) {
@@ -35,11 +35,11 @@ var getMaxElement = function (element) {
 };
 
 window.renderStatistics = function (ctx, names, times) {
-  var cloud_shadow_x = cloud_x + gap;
-  var cloud_shadow_y = cloud_y + gap;
+  var cloudShadowX = CLOUD_X + GAP;
+  var cloudShadowY = CLOUD_Y + GAP;
 
-  renderCloud(ctx, cloud_shadow_x, cloud_shadow_y, 'rgba(0, 0, 0, 0.7)');
-  renderCloud(ctx, cloud_x, cloud_y, '#fff');
+  renderCloud(ctx, cloudShadowX, cloudShadowY, 'rgba(0, 0, 0, 0.7)');
+  renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
   getTextValue(ctx, 'Ура вы победили!', 120, 42, '#000000');
   getTextValue(ctx, 'Список результатов:', 120, 62, '#000000');
@@ -48,13 +48,13 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     var playerName = names[i];
-    var playerNameX = bar_x + (bar_width + bar_gap) * i;
+    var playerNameX = BAR_X + (BAR_WIDTH + BAR_GAP) * i;
 
-    getTextValue(ctx, playerName, playerNameX, cloud_height, '#000000');
+    getTextValue(ctx, playerName, playerNameX, CLOUD_HEIGHT, '#000000');
 
     var playerScore = Math.round(times[i]);
-    var playerScoreX = bar_x + (bar_width + bar_gap) * i;
-    var playerScoreY = cloud_height - (bar_height * times[i] / maxTime) - gap * 3;
+    var playerScoreX = BAR_X + (BAR_WIDTH + BAR_GAP) * i;
+    var playerScoreY = CLOUD_HEIGHT - (BAR_HEIGHT * times[i] / maxTime) - GAP * 3;
 
     getTextValue(ctx, playerScore, playerScoreX, playerScoreY, '#000000');
 
@@ -64,10 +64,10 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
     }
 
-    var barHeightWinner = (bar_height * times[i] / maxTime) * -1;
-    var barXWinner = bar_x + (bar_width + bar_gap) * i;
-    var barYWinner = bar_y + bar_height;
+    var barHeightWinner = (BAR_HEIGHT * times[i] / maxTime) * -1;
+    var barXWinner = BAR_X + (BAR_WIDTH + BAR_GAP) * i;
+    var barYWinner = BAR_Y + BAR_HEIGHT;
 
-    ctx.fillRect(barXWinner, barYWinner, bar_width, barHeightWinner);
+    ctx.fillRect(barXWinner, barYWinner, BAR_WIDTH, barHeightWinner);
   }
 };
