@@ -11,7 +11,8 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template').c
 var elementSimilarList = document.querySelector('.setup-similar-list');
 var fragment = document.createDocumentFragment();
 var wizardElement = 0;
-var setupSimilar = document.querySelector('.setup-similar').classList.remove('hidden');
+var setupSimilar = document.querySelector('.setup-similar');
+setupSimilar.classList.remove('hidden')
 
 function casual(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
