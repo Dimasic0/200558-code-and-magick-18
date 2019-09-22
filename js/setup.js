@@ -19,28 +19,26 @@ function casual(min, max) {
 }
 wizards = [
   {
-    name: names[casual(0, 7)] + " " + lastNames[casual(0, 7)],
+    name: names[casual(0, 7)] + ' ' + lastNames[casual(0, 7)],
     coatColor: COAT_COLORS[casual(0, 5)],
     eyesColor: EYE_COLOR[casual(0, 4)]
   },
   {
-    name: names[casual(0, 7)] + " " + lastNames[casual(0, 7)],
+    name: names[casual(0, 7)] + ' ' + lastNames[casual(0, 7)],
     coatColor: COAT_COLORS[casual(0, 5)],
     eyesColor: EYE_COLOR[casual(0, 4)]
   },
   {
-    name: names[casual(0, 7)] + " " + lastNames[casual(0, 7)],
+    name: names[casual(0, 7)] + ' ' + lastNames[casual(0, 7)],
     coatColor: COAT_COLORS[casual(0, 5)],
     eyesColor: EYE_COLOR[casual(0, 4)]
   },
   {
-    name: names[casual(0, 7)] + " " + lastNames[casual(0, 7)],
+    name: names[casual(0, 7)] + ' ' + lastNames[casual(0, 7)],
     coatColor: COAT_COLORS[casual(0, 5)],
     eyesColor: EYE_COLOR[casual(0, 4)]
   }
 ];
-
-
 
 for (var i = 0; i <= 3; i++) {
   wizardElement = similarWizardTemplate.cloneNode(true);
