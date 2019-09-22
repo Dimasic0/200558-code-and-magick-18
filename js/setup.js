@@ -1,7 +1,6 @@
 'use strict';
 
 var SETUP_ITEM = document.querySelector('.setup');
-var fragment = document.createDocumentFragment();
 SETUP_ITEM.classList.remove('hidden');
 var wizards = [];
 var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
