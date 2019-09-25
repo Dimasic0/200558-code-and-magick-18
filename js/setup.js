@@ -27,11 +27,11 @@ for (var i = 0; i < NUMBER_MAGICIANS; i++) {
   };
 }
 
-for (i = 0; i < wizards.length; i++) {
+for (var j = 0; j < wizards.length; i++) {
   wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
-  wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
+  wizardElement.querySelector('.setup-similar-label').textContent = wizards[j].name;
+  wizardElement.querySelector('.wizard-coat').style.fill = wizards[j].coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[j].eyesColor;
   fragment.appendChild(wizardElement);
 }
 elementSimilarList.appendChild(fragment);
