@@ -27,7 +27,7 @@ for (var i = 0; i < NUMBER_MAGICIANS; i++) {
   };
 }
 
-for (var i = 0; i < wizards.length; i++) {
+for (i = 0; i < wizards.length; i++) {
   wizardElement = similarWizardTemplate.cloneNode(true);
   wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
