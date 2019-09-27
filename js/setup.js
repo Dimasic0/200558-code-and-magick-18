@@ -4,10 +4,41 @@ var setup = document.querySelector('.setup');
 setup.classList.remove('hidden');
 var wizards = [];
 var WIZARDS_COUNT = 4;
-var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var lastNames = ['Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var COLORS_EYES = ['black', 'red', 'blue', 'yellow', 'green'];
+var names = [
+  'Иван',
+  'Хуан Себастьян',
+  'Мария',
+  'Кристоф',
+  'Виктор',
+  'Юлия',
+  'Люпита',
+  'Вашингтон'
+];
+var lastNames = [
+  'Марья',
+  'Верон',
+  'Мирабелла',
+  'Вальц',
+  'Онопко',
+  'Топольницкая',
+  'Нионго',
+  'Ирвинг'
+];
+var COAT_COLORS = [
+  'rgb(101, 137, 164)',
+  'rgb(241, 43, 107)',
+  'rgb(146, 100, 161)',
+  'rgb(56, 159, 117)',
+  'rgb(215, 210, 55)',
+  'rgb(0, 0, 0)'
+];
+var COLORS_EYES = [
+  'black',
+  'red',
+  'blue',
+  'yellow',
+  'green'
+];
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 var elementSimilarList = document.querySelector('.setup-similar-list');
 var fragment = document.createDocumentFragment();
