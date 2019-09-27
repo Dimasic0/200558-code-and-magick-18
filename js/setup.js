@@ -35,4 +35,3 @@ for (var j = 0; j < wizards.length; j++) {
   fragment.appendChild(wizardElement);
 }
 elementSimilarList.appendChild(fragment);
-
