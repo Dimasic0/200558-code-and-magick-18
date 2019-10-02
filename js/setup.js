@@ -100,9 +100,8 @@ function openWindow() {
 SETUP_OPEN.addEventListener('click', openWindow);
 
 function closeWindow() {
-  if(fieldWaterFocus===false)
-  {
-  setup.classList.add('hidden');
+  if (fieldWaterFocus === false) {
+    setup.classList.add('hidden');
   }
 }
 
