@@ -6,6 +6,9 @@ var wizards = [];
 var WIZARDS_COUNT = 4;
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireballs = document.querySelector('.setup-fireball-wrap');
+var fieldWaterFocus = false;
+var nameInputFields = document.querySelector('.setup-user-name');
+
 var names = [
   'Иван',
   'Хуан Себастьян',
@@ -78,6 +81,18 @@ for (var i = 0; i < WIZARDS_COUNT; i++) {
 }
 elementSimilarList.appendChild(fragment);
 
+function writeVariableTrue() {
+  fieldWaterFocus = true;
+  console.log(fieldWaterFocus);
+}
+nameInputFields.addEventListener('focus', writeVariableTrue);
+
+function writeVariableFalse() {
+  fieldWaterFocus = false;
+  console.log(fieldWaterFocus);
+}
+nameInputFields.addEventListener('blur', writeVariableFalse);
+
 function openWindow() {
   setup.classList.remove("hidden");
 }
@@ -85,7 +100,10 @@ function openWindow() {
 SETUP_OPEN.addEventListener('click', openWindow);
 
 function closeWindow() {
+  if(fieldWaterFocus===false)
+  {
   setup.classList.add('hidden');
+  }
 }
 
 SETUP_CLOSE.addEventListener('click', closeWindow);
@@ -97,15 +115,15 @@ SETUP_OPEN_ICON.addEventListener('keydown', function (evt) {
 });
 
 SETUP_CLOSE.addEventListener('keydown', function (evt) {
+
   if (evt.keyCode === 27) {
     closeWindow();
   }
 
-  if (evt.keyCode === 13) {
+  if (fieldWaterFocus === false && evt.keyCode === 13) {
     closeWindow();
   }
 })
-
 
 function changeColorMantle() {
   wizardCoat.style.fill = COAT_COLORS[getRandomInRange(0, 5)];
