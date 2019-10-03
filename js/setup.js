@@ -3,7 +3,7 @@ var d = 1;
 var setup = document.querySelector('.setup');
 var SETUP_OPEN = document.querySelector('.setup-open');
 var wizards = [];
-var focusPhoto==false;
+var focusPhoto=false;
 var WIZARDS_COUNT = 4;
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireballs = document.querySelector('.setup-fireball-wrap');
