@@ -126,7 +126,7 @@ SETUP_OPEN_ICON.addEventListener('keydown', function (evt) {
   }
 });
 
-document.addEventListener('keydown', function (evt) {
+setup.addEventListener('keydown', function (evt) {
   if (fieldWaterFocus===false && evt.keyCode === 27) {
     closeWindow();
 
@@ -139,7 +139,7 @@ document.addEventListener('keydown', function (evt) {
 
 document.addEventListener('keydown',function(evt)
 {
-
+  console.log("1");
   if(focusPhoto===true && evt.keyCode===13)
     {
       openWindow();
