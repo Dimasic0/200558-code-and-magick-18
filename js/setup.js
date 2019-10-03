@@ -1,5 +1,5 @@
 'use strict';
-
+var d = 1;
 var setup = document.querySelector('.setup');
 var SETUP_OPEN = document.querySelector('.setup-open');
 var wizards = [];
@@ -105,7 +105,7 @@ function closeWindow() {
   }
 }
 
-SETUP_CLOSE.addEventListener('click', closeWindow);
+SETUP_CLOSE.addEventListener('mousedown', closeWindow);
 
 SETUP_OPEN_ICON.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
@@ -114,12 +114,12 @@ SETUP_OPEN_ICON.addEventListener('keydown', function (evt) {
 });
 
 SETUP_CLOSE.addEventListener('keydown', function (evt) {
-
   if (evt.keyCode === 27) {
     closeWindow();
+
   }
 
-  if (fieldWaterFocus === false && evt.keyCode === 13) {
+  if (evt.keyCode === 13) {
     closeWindow();
   }
 })
@@ -139,3 +139,5 @@ function changeColorFireballs() {
   fireballs.style.background = fireballColors[getRandomInRange(0, 4)];
 }
 fireballs.addEventListener('click', changeColorFireballs);
+
+
