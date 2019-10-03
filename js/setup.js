@@ -3,6 +3,7 @@ var d = 1;
 var setup = document.querySelector('.setup');
 var SETUP_OPEN = document.querySelector('.setup-open');
 var wizards = [];
+var focusPhoto==false;
 var WIZARDS_COUNT = 4;
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireballs = document.querySelector('.setup-fireball-wrap');
@@ -83,15 +84,27 @@ elementSimilarList.appendChild(fragment);
 
 function writeVariableTrue() {
   fieldWaterFocus = true;
-  console.log(fieldWaterFocus);
 }
 nameInputFields.addEventListener('focus', writeVariableTrue);
 
 function writeVariableFalse() {
   fieldWaterFocus = false;
-  console.log(fieldWaterFocus);
 }
 nameInputFields.addEventListener('blur', writeVariableFalse);
+
+function allowOpenWindow()
+{
+  focusPhoto=true;
+}
+
+SETUP_OPEN.addEventListener('focus',allowOpenWindow);
+
+function preventOpenWindow()
+{
+  focusPhoto=false;
+}
+
+SETUP_OPEN.addEventListener('onblur',preventOpenWindow);
 
 function openWindow() {
   setup.classList.remove("hidden");
@@ -113,8 +126,8 @@ SETUP_OPEN_ICON.addEventListener('keydown', function (evt) {
   }
 });
 
-SETUP_CLOSE.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 27) {
+document.addEventListener('keydown', function (evt) {
+  if (fieldWaterFocus===false && evt.keyCode === 27) {
     closeWindow();
 
   }
@@ -122,7 +135,18 @@ SETUP_CLOSE.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
     closeWindow();
   }
-})
+});
+
+document.addEventListener('keydown',function(evt)
+{
+
+  if(focusPhoto===true && evt.keyCode===13)
+    {
+      openWindow();
+      console.log('ok');
+    }
+}
+);
 
 function changeColorMantle() {
   wizardCoat.style.fill = COAT_COLORS[getRandomInRange(0, 5)];
@@ -135,7 +159,6 @@ function changeEyeColor() {
 wizardEyes.addEventListener('click', changeEyeColor);
 
 function changeColorFireballs() {
-  console.log(fireballColors[getRandomInRange(0, 4)]);
   fireballs.style.background = fireballColors[getRandomInRange(0, 4)];
 }
 fireballs.addEventListener('click', changeColorFireballs);
