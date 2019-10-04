@@ -130,17 +130,17 @@ document.addEventListener('keydown', function (evt) {
     closeWindow();
 
   }
-
+/*
   if (setup.display != 'none' && evt.keyCode === 13) {
     closeWindow();
-  }
+  }*/
 });
-
+/*
 document.addEventListener('keydown', function (evt) {
   if (focusPhoto === true && evt.keyCode === 13) {
     openWindow();
   }
-});
+});*/
 
 function changeColorMantle() {
   wizardCoat.style.fill = COAT_COLORS[getRandomInRange(0, 5)];
