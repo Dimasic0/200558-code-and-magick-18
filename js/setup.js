@@ -1,15 +1,14 @@
 'use strict';
-var d = 1;
 var setup = document.querySelector('.setup');
 var SETUP_OPEN = document.querySelector('.setup-open');
 var wizards = [];
-var focusPhoto = false;
+// var focusPhoto = false;
 var WIZARDS_COUNT = 4;
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireballs = document.querySelector('.setup-fireball-wrap');
 var fieldWaterFocus = false;
 var nameInputFields = document.querySelector('.setup-user-name');
-var windowState=false;
+// var windowState = false;
 
 var names = [
   'Иван',
@@ -52,7 +51,7 @@ var fragment = document.createDocumentFragment();
 var wizardElement;
 var setupSimilar = document.querySelector('.setup-similar');
 var SETUP_CLOSE = setup.querySelector('.setup-close');
-var SETUP_OPEN_ICON = document.querySelector('.setup-open-icon');
+// var SETUP_OPEN_ICON = document.querySelector('.setup-open-icon');
 var wizardCoat = document.querySelector('.wizard-coat');
 var fireballColors = [
   '#ee4830',
@@ -93,7 +92,7 @@ function writeVariableFalse() {
 }
 nameInputFields.addEventListener('blur', writeVariableFalse);
 
-function allowOpenWindow() {
+/* function allowOpenWindow() {
   focusPhoto = true;
 }
 SETUP_OPEN.addEventListener('focus', allowOpenWindow);
@@ -101,27 +100,23 @@ SETUP_OPEN.addEventListener('focus', allowOpenWindow);
 function preventOpenWindow() {
   focusPhoto = false;
 }
-SETUP_OPEN.addEventListener('onblur', preventOpenWindow);
+SETUP_OPEN.addEventListener('onblur', preventOpenWindow);*/
 
 function openWindow() {
-  setup.classList.remove("hidden");
-  windowState=true;
+  setup.classList.remove('hidden');
+  // windowState = true;
   console.log('открытие окна');
 }
 SETUP_OPEN.addEventListener('click', openWindow);
 
 function closeWindow() {
-  if (windowState===true && fieldWaterFocus === false) {
-    setup.classList.add('hidden');
-    windowState=false;
-        console.log('закрытие окна');
-  }
+  setup.classList.add('hidden');
 }
 SETUP_CLOSE.addEventListener('mousedown', closeWindow);
 
-SETUP_OPEN_ICON.addEventListener('keydown', function (evt) {
+SETUP_CLOSE.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
-    openWindow();
+    closeWindow();
   }
 });
 
@@ -130,10 +125,10 @@ document.addEventListener('keydown', function (evt) {
     closeWindow();
 
   }
-/*
-  if (setup.display != 'none' && evt.keyCode === 13) {
-    closeWindow();
-  }*/
+  /*
+    if (setup.display != 'none' && evt.keyCode === 13) {
+      closeWindow();
+    }*/
 });
 /*
 document.addEventListener('keydown', function (evt) {
