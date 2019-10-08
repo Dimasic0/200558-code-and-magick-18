@@ -86,11 +86,12 @@ function cbclosePopup() {
 
 function openPopup() {
   setup.classList.remove('hidden');
+
   function onPopupEscPress(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    cbclosePopup();
-  }
-};
+    if (evt.keyCode === ESC_KEYCODE) {
+      cbclosePopup();
+    }
+  };
   document.addEventListener('keydown', onPopupEscPress);
 };
 
@@ -110,19 +111,20 @@ setupClose.addEventListener('mousedown', cbclosePopup);
 
 
 function onWizardCoatClick() {
-    wizardCoat.style.fill = COAT_COLORS[getRandomInRange(0, 5)];
-  }
-  wizardCoat.addEventListener('mousedown', onWizardCoatClick);
+  wizardCoat.style.fill = COAT_COLORS[getRandomInRange(0, 5)];
+}
+wizardCoat.addEventListener('mousedown', onWizardCoatClick);
 
-  function onWizardEyesClick() {
-    wizardEyes.style.fill = COLORS_EYES[getRandomInRange(0, 4)];
-  }
-  wizardEyes.addEventListener('mousedown', onWizardEyesClick);
+function onWizardEyesClick() {
+  wizardEyes.style.fill = COLORS_EYES[getRandomInRange(0, 4)];
+}
+wizardEyes.addEventListener('mousedown', onWizardEyesClick);
 
-  function onFireballsClick() {
-    fireballs.style.background = FIREBALL_COLORS[getRandomInRange(0, 4)];
-  }
-  fireballs.addEventListener('mousedown', onFireballsClick);
+function onFireballsClick() {
+  fireballs.style.background = FIREBALL_COLORS[getRandomInRange(0, 4)];
+}
+fireballs.addEventListener('mousedown', onFireballsClick);
+
 function onSetupCloseKeydown(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     cbclosePopup();
@@ -132,21 +134,22 @@ setupClose.addEventListener('keydown', onSetupCloseKeydown);
 
 
 setupUserName.addEventListener('blur', function () {
-    function onPopupEscPress(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    cbclosePopup();
-  }
-};
+  function onPopupEscPress(evt) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      cbclosePopup();
+    }
+  };
   document.addEventListener('keydown', onPopupEscPress);
+
   function onSetupCloseKeydown(evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    cbclosePopup();
+    if (evt.keyCode === ENTER_KEYCODE) {
+      cbclosePopup();
+    }
   }
-}
-setupClose.addEventListener('keydown', onSetupCloseKeydown);
+  setupClose.addEventListener('keydown', onSetupCloseKeydown);
 });
 
-setupUserName.addEventListener('focus',function () {
-setupClose.removeEventListener('keydown', onSetupCloseKeydown);
-console.log('ok');
+setupUserName.addEventListener('focus', function () {
+  setupClose.removeEventListener('keydown', onSetupCloseKeydown);
+  console.log('ok');
 });
