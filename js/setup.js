@@ -78,7 +78,11 @@ for (var i = 0; i < WIZARDS_COUNT; i++) {
   fragment.appendChild(wizardElement);
 }
 elementSimilarList.appendChild(fragment);
-
+function onPopupEscPress(evt) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      cbclosePopup();
+    }
+  }
 function cbclosePopup() {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
@@ -86,12 +90,6 @@ function cbclosePopup() {
 
 function openPopup() {
   setup.classList.remove('hidden');
-
-  function onPopupEscPress(evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      cbclosePopup();
-    }
-  };
   document.addEventListener('keydown', onPopupEscPress);
 };
 
@@ -134,11 +132,6 @@ setupClose.addEventListener('keydown', onSetupCloseKeydown);
 
 
 setupUserName.addEventListener('blur', function () {
-  function onPopupEscPress(evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      cbclosePopup();
-    }
-  };
   document.addEventListener('keydown', onPopupEscPress);
 
   function onSetupCloseKeydown(evt) {
