@@ -99,7 +99,7 @@ setupOpen.addEventListener('mousedown', function () {
   openPopup();
 });
 
-function onSetupOpenKeydown (evt) {
+function onSetupOpenKeydown(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
@@ -110,22 +110,22 @@ setupClose.addEventListener('mousedown', cbclosePopup);
 
 
 
-function onWizardCoatClick () {
+function onWizardCoatClick() {
   wizardCoat.style.fill = COAT_COLORS[getRandomInRange(0, 5)];
 }
 wizardCoat.addEventListener('mousedown', onWizardCoatClick);
 
-function onWizardEyesClick () {
+function onWizardEyesClick() {
   wizardEyes.style.fill = COLORS_EYES[getRandomInRange(0, 4)];
 }
 wizardEyes.addEventListener('mousedown', onWizardEyesClick);
 
-function onFireballsClick () {
+function onFireballsClick() {
   fireballs.style.background = FIREBALL_COLORS[getRandomInRange(0, 4)];
 }
 fireballs.addEventListener('mousedown', onFireballsClick);
 
-function onSetupCloseKeydown (evt) {
+function onSetupCloseKeydown(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     cbclosePopup();
   }
