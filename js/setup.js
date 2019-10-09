@@ -2,7 +2,6 @@
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 var WIZARDS_COUNT = 4;
-var setupUserName = document.querySelector('.setup-user-name');
 var NAMES = [
   'Иван',
   'Хуан Себастьян',
@@ -45,6 +44,7 @@ var FIREBALL_COLORS = [
   '#e848d5',
   '#e6e848'
 ]; // fireballColors
+var setupUserName = document.querySelector('.setup-user-name');
 var setup = document.querySelector('.setup');
 var setupClose = setup.querySelector('.setup-close');
 var setupOpen = document.querySelector('.setup-open');
@@ -52,9 +52,9 @@ var wizards = [];
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireballs = document.querySelector('.setup-fireball-wrap');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-var elementSimilarList = document.querySelector('.setup-similar-list');
+var setupSimilarItem = document.querySelector('.setup-similar-list');
 var fragment = document.createDocumentFragment();
-var wizardElement;
+var wizardСlone;
 var setupSimilar = document.querySelector('.setup-similar');
 var wizardCoat = document.querySelector('.wizard-coat');
 
@@ -71,13 +71,13 @@ for (var i = 0; i < WIZARDS_COUNT; i++) {
     eyesColor: COLORS_EYES[getRandomInRange(0, 4)],
   };
 
-  wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
-  wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
-  fragment.appendChild(wizardElement);
+  wizardСlone = similarWizardTemplate.cloneNode(true);
+  wizardСlone.querySelector('.setup-similar-label').textContent = wizards[i].name;
+  wizardСlone.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
+  wizardСlone.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
+  fragment.appendChild(wizardСlone);
 }
-elementSimilarList.appendChild(fragment);
+setupSimilarItem.appendChild(fragment);
 
 function onPopupEscPress(evt) {
   if (evt.keyCode === ESC_KEYCODE) {
