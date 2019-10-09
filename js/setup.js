@@ -132,14 +132,9 @@ setupClose.addEventListener('keydown', onSetupCloseKeydown);
 
 
 setupUserName.addEventListener('blur', function () {
-  document.addEventListener('keydown', onPopupEscPress);
-
-  function onSetupCloseKeydown(evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      cbclosePopup();
-    }
-  }
   setupClose.addEventListener('keydown', onSetupCloseKeydown);
+  document.addEventListener('keydown', onPopupEscPress);
+  setupClose.addEventListener('mousedown', cbclosePopup);
 });
 
 setupUserName.addEventListener('focus', function () {
