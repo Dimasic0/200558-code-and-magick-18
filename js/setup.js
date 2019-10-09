@@ -78,20 +78,22 @@ for (var i = 0; i < WIZARDS_COUNT; i++) {
   fragment.appendChild(wizardElement);
 }
 elementSimilarList.appendChild(fragment);
+
 function onPopupEscPress(evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      cbclosePopup();
-    }
+  if (evt.keyCode === ESC_KEYCODE) {
+    cbclosePopup();
   }
+}
+
 function cbclosePopup() {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
-};
+}
 
 function openPopup() {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
-};
+}
 
 setupOpen.addEventListener('mousedown', function () {
   openPopup();
@@ -105,7 +107,6 @@ function onSetupOpenKeydown(evt) {
 setupOpen.addEventListener('keydown', onSetupOpenKeydown);
 
 setupClose.addEventListener('mousedown', cbclosePopup);
-
 
 
 function onWizardCoatClick() {
@@ -137,5 +138,4 @@ setupUserName.addEventListener('blur', function () {
 
 setupUserName.addEventListener('focus', function () {
   document.removeEventListener('keydown', onPopupEscPress);
-  console.log('ok');
 });
