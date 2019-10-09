@@ -132,14 +132,10 @@ setupClose.addEventListener('keydown', onSetupCloseKeydown);
 
 
 setupUserName.addEventListener('blur', function () {
-  setupClose.addEventListener('keydown', onSetupCloseKeydown);
   document.addEventListener('keydown', onPopupEscPress);
-  setupClose.addEventListener('mousedown', cbclosePopup);
 });
 
 setupUserName.addEventListener('focus', function () {
-  setupClose.removeEventListener('keydown', onSetupCloseKeydown);
   document.removeEventListener('keydown', onPopupEscPress);
-  setupClose.removeEventListener('mousedown', cbclosePopup);
   console.log('ok');
 });
