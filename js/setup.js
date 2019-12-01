@@ -147,14 +147,14 @@ upload.addEventListener('mousedown', function (evt) {
 	x = evt.clientX;
 	y = evt.clientY;
 	console.log(evt);
-	//console.log('ok');
+	console.log(10+px);
 	upload.addEventListener('mousemove', onUploadMousemove);
 	function onUploadMousemove(moving) {
       console.log('перемешение');
-	  var setupLeft=getComputedStyle(setup);
-      console.log('setupLeft.left='+setupLeft.left);
+	  var setupstyle=getComputedStyle(setup);
+      console.log('setupstyle.left='+setupstyle.left);
 	  console.log('moving.clientX=' + moving.clientX + ' x=' + x);
-	  setup.style.left=number.parseInt(setupLeft.left.substring(0,2))+(moving.clientX - x)+'px';
+	  setup.style.left=number.parseInt(setupstyle.left.substring(0,2))+(moving.clientX - x)+'px';
 	  x = moving.clientX;
 	  y = moving.clientY;
 	}
