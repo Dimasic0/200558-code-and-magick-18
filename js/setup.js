@@ -142,25 +142,23 @@ setupUserName.addEventListener('blur', function () {
 setupUserName.addEventListener('focus', function () {
 	document.removeEventListener('keydown', onPopupEscPress);
 });
-
 upload.addEventListener('mousedown', function (evt) {
 	x = evt.clientX;
 	y = evt.clientY;
 	console.log(evt);
-	console.log(10+px);
-	upload.addEventListener('mousemove', onUploadMousemove);
+	document.addEventListener('mousemove', onUploadMousemove);
 	function onUploadMousemove(moving) {
       console.log('перемешение');
 	  var setupstyle=getComputedStyle(setup);
       console.log('setupstyle.left='+setupstyle.left);
-	  console.log('moving.clientX=' + moving.clientX + ' x=' + x);
-	  setup.style.left=number.parseInt(setupstyle.left.substring(0,2))+(moving.clientX - x)+'px';
+      setup.style.top=Number.parseInt(setupstyle.top,10)+(moving.clientY-y)+'px';
+	  setup.style.left=Number.parseInt(setupstyle.left,10)+(moving.clientX - x)+'px';
 	  x = moving.clientX;
 	  y = moving.clientY;
 	}
-	document.addEventListener('mouseup', onDocumentMouseup);
-	function onDocumentMouseup(evt) {
-		evt.preventDefault();
-		upload.removeEventListener('mousemove', onUploadMousemove);
+	upload.addEventListener('mouseup', onDocumentMouseup);
+	function onDocumentMouseup(defaultEvent) {
+		defaultEvent.preventDefault();
+		document.removeEventListener('mousemove', onUploadMousemove);
 	}
 });
