@@ -7,4 +7,4 @@ xhr.addEventListener('load',function () {
 });
 xhr.open('GET','https://js.dump.academy/code-and-magick/data.');
 xhr.send();
-xhr.timeout = 10000;
+xhr.timeout = 1000;
