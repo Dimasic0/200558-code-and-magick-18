@@ -3,34 +3,6 @@
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 var WIZARDS_COUNT = 4;
-var NAMES = [
-  'Иван',
-  'Хуан Себастьян',
-  'Мария',
-  'Кристоф',
-  'Виктор',
-  'Юлия',
-  'Люпита',
-  'Вашингтон'
-];
-var LAST_NAMES = [
-  'Марья',
-  'Верон',
-  'Мирабелла',
-  'Вальц',
-  'Онопко',
-  'Топольницкая',
-  'Нионго',
-  'Ирвинг'
-];
-var COAT_COLORS = [
-  'rgb(101, 137, 164)',
-  'rgb(241, 43, 107)',
-  'rgb(146, 100, 161)',
-  'rgb(56, 159, 117)',
-  'rgb(215, 210, 55)',
-  'rgb(0, 0, 0)'
-];
 var COLORS_EYES = [
   'black',
   'red',
@@ -53,6 +25,7 @@ var wizards = [];
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireballs = document.querySelector('.setup-fireball-wrap');
 var setupSimilarItem = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
+var setupSimilarList=document.querySelector('.setup-similar-list');
 var fragment = document.createDocumentFragment();
 var wizardСlone;
 var setupSimilar = document.querySelector('.setup-similar');
@@ -66,32 +39,25 @@ setupSimilar.classList.remove('hidden');
 function getRandomInRange(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+console.log(NAMES);
 for (var i = 0; i < WIZARDS_COUNT; i++) {
 	wizards[i] = {
-		name: NAMES[getRandomInRange(0, 7)] + ' ' + LAST_NAMES[getRandomInRange(0, 7)],
-		coatColor: COAT_COLORS[getRandomInRange(0, 5)],
-		eyesColor: COLORS_EYES[getRandomInRange(0, 4)],
+		name: NAMES[i],
+		coatColor: COAT_COLORS[i],
+		eyesColor: COLORS_EYES[i],
 	};
-
 	wizardСlone = setupSimilarItem.cloneNode(true);
-	wizardСlone.querySelector('.setup-similar-label').textContent = wizards[i].name;
+	wizardСlone.querySelector('.setup-similar-label').textContent = NAMES[i];
 	wizardСlone.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
 	wizardСlone.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
 	fragment.appendChild(wizardСlone);
 }
-setupSimilarItem.appendChild(fragment);
+setupSimilarList.appendChild(fragment);
 
 function onPopupEscPress(evt) {
 	if (evt.keyCode === ESC_KEYCODE) {
 		cbclosePopup();
 	}
-}
-
-function cbclosePopup() {
-	setup.classList.add('hidden');
-	document.removeEventListener('keydown', onPopupEscPress);
-	documemt.removeEventListener('mouseup', onDocumentMouseup);
 }
 
 function openPopup() {
@@ -132,6 +98,11 @@ function onSetupCloseKeydown(evt) {
 	if (evt.keyCode === ENTER_KEYCODE) {
 		cbclosePopup();
 	}
+}
+function cbclosePopup() {
+	setup.classList.add('hidden');
+	document.removeEventListener('keydown', onPopupEscPress);
+	documemt.removeEventListener('mouseup', onDocumentMouseup);
 }
 setupClose.addEventListener('keydown', onSetupCloseKeydown);
 
