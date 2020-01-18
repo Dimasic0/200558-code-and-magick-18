@@ -1,10 +1,9 @@
 var xhr = new XMLHttpRequest()
-xhr.responseType('json');
 var data;
+xhr.responseType = 'json';
 xhr.addEventListener('load',function () {	
-	data=JSON.parse(xhr.responseText);
+	data=xhr.response;
 	console.log('data',data);
 });
-xhr.open('GET','https://js.dump.academy/code-and-magick/data.');
+xhr.open('GET','https://js.dump.academy/code-and-magick/data');
 xhr.send();
-xhr.timeout = 1000;
