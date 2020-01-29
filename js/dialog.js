@@ -74,10 +74,4 @@ evt.preventDefault();
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
-  document.addEventListener('click',function () {
-	console.log('клик');  
-  });	
-  document.addEventListener('mouseup',function () {
-    console.log('mouseup');	  
-  });
 })();
