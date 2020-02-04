@@ -667,7 +667,8 @@ input[type=radio]:checked + .review-mark-label
     z-index: 3;
     top: 80px;
     left: 50%;
-
+    margin-top:0;
+    margin-left:0;
     box-sizing: border-box;
     width: 800px;
 
