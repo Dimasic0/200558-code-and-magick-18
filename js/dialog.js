@@ -21,8 +21,6 @@
         x: moveEvt.clientX,
         y: moveEvt.clientY
       };
-      console.log('shift.y=' + shift.y);
-      console.log('shift.x' + shift.x);
       setup.style.marginTop = (Number.parseInt(setupStyle.marginTop, 10) + shift.y) + 'px';
       setup.style.marginLeft = (Number.parseInt(setupStyle.marginLeft, 10) + shift.x) + 'px';
     };

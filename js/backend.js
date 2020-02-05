@@ -19,12 +19,10 @@
           onLoad(data);
         } else {
           onError('Ошибка Cтатус ответа:' + xhr.status);
-          console.log('lok');
         }
-        console.log('data', data);
       });
       xhr.addEventListener('timeout', function () {
-        console.log('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
+        onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
       });
       xhr.timeout = 10000;
       xhr.open('GET', 'https://js.dump.academy/code-and-magick/data');
@@ -33,8 +31,7 @@
     save: function (data, onLoad, onError) {
       var xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
-      xhr.addEventListener('load', function () {
-        console.log(xhr.status);
+      xhr.addEventListener('load', function (information) {
         if (xhr.status === 200) {
           onLoad();
         } else {
@@ -45,8 +42,8 @@
       xhr.send(data);
     }
   };
-  
-  backend.load(characterCreation, error);
+
+  backend.load(characterCreation, aroseError);
   function characterCreation(information) {
     for (var i = 0; i < WIZARDS_COUNT; i++) {
       wizard = setupSimilarItem.cloneNode(true);
@@ -54,20 +51,19 @@
       wizard.querySelector('.wizard-coat').style.fill = information[i].colorCoat;
       wizard.querySelector('.wizard-eyes').style.fill = information[i].colorEyes;
       fragment.appendChild(wizard);
-      console.log(wizard);
     }
     setupSimilarList.appendChild(fragment);
   }
-  function error(mistake) {
+  function aroseError(mistake) {
     error.textContent = mistake;
     error.style.display = 'block';
   }
-  
+
   setupWizardForm.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    backend.save(new FormData(setupWizardForm) , loaded, error);
-     function loaded(line) {
-    console.log(line);
-  }
+    backend.save(new FormData(setupWizardForm), uploadData, aroseError);
+    function uploadData(line) {
+      console.log(line);
+    }
   });
 })();
