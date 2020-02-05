@@ -31,7 +31,7 @@
     save: function (data, onLoad, onError) {
       var xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
-      xhr.addEventListener('load', function (information) {
+      xhr.addEventListener('load', function () {
         if (xhr.status === 200) {
           onLoad();
         } else {
@@ -62,8 +62,8 @@
   setupWizardForm.addEventListener('submit', function (evt) {
     evt.preventDefault();
     backend.save(new FormData(setupWizardForm), uploadData, aroseError);
-    function uploadData(line) {
-      console.log(line);
+    function uploadData() {
+      console.log('ok');
     }
   });
 })();
