@@ -57,13 +57,17 @@
   function aroseError(mistake) {
     error.textContent = mistake;
     error.style.display = 'block';
+    error.style.backgroundColor = 'red';
+    error.textContent = 'Ошибка';
   }
 
   setupWizardForm.addEventListener('submit', function (evt) {
     evt.preventDefault();
     backend.save(new FormData(setupWizardForm), uploadData, aroseError);
     function uploadData() {
-      console.log('ok');
+      error.textContent = 'Отправлено';
+      error.style.display = 'block';
+      error.style.backgroundColor = 'green';
     }
   });
 })();

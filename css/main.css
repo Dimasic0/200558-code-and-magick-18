@@ -1024,9 +1024,12 @@ input[type=radio]:checked + .review-mark-label
 .error
 {
 	display: none;
-    margin: 0px auto;
     text-align: center;
     background-color: red;
+    width:100%;
     font-size: 30px;
     z-index:100;	
+    position:fixed;
+    top:0;
+    left:0px;
 }
