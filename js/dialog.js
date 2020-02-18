@@ -1,5 +1,4 @@
 'use strict';
-(function () {
   var setup = document.querySelector('.setup');
   var setupStyle = getComputedStyle(setup);
   var upload = setup.querySelector('.upload');
@@ -28,13 +27,12 @@
       console.log('dragged='+dragged);
       if(dragged===true) {
         console.log('dragged===true');
-       upload.addEventListener('click',onUploadClick);
-       function onUploadClick (evt) {
+      function onUploadClick (evt) {
          evt.preventDefault();
          console.log('onUploadClick');
-         upload.removeEventListener('click',onUloadClick);
+         upload.removeEventListener('click',onUploadClick);
        }
+       upload.addEventListener('click',onUploadClick);
       }
     }
   });
-})();
