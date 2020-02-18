@@ -4,7 +4,7 @@
   var setupStyle = getComputedStyle(setup);
   var upload = setup.querySelector('.upload');
   upload.addEventListener('mousedown', function (evt) {
-    evt.preventDefault();
+    //evt.preventDefault();
     var coordinate = {
       x: evt.clientX,
       y: evt.clientY
@@ -13,6 +13,7 @@
     document.addEventListener('mousemove', onDocumentMousemove);
     function onDocumentMousemove(moveEvt) {
       moveEvt.preventDefault();
+      console.log('onDocumentMousemove');
       dragged=true;
       setup.style.marginTop = Number.parseInt(setupStyle.marginTop, 10) + (moveEvt.clientY - coordinate.y) + 'px';
       setup.style.marginLeft = Number.parseInt(setupStyle.marginLeft, 10) + (moveEvt.clientX - coordinate.x) + 'px';
@@ -24,12 +25,14 @@
       //defaultEvent.preventDefault();
       document.removeEventListener('mousemove', onDocumentMousemove);
       document.removeEventListener('mouseup',onMouseup);
-      if(dragged===true)
-      {
+      console.log('dragged='+dragged);
+      if(dragged===true) {
+        console.log('dragged===true');
        upload.addEventListener('click',onUploadClick);
        function onUploadClick (evt) {
          evt.preventDefault();
-         uload.removeEventListener('click',onUloadClick);
+         console.log('onUploadClick');
+         upload.removeEventListener('click',onUloadClick);
        }
       }
     }
